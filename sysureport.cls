@@ -9,11 +9,7 @@
 % 图片
 \RequirePackage{graphicx,float,subfig}
 \RequirePackage{tikz}
-% 数学物理
-\RequirePackage{amssymb}
-% \RequirePackage{mathrsfs} % 注释掉的宏包保持原样
-\RequirePackage{amsmath}
-\RequirePackage{physics}
+
 % matlab
 \RequirePackage{matlab}
 
@@ -103,7 +99,8 @@
 
 % 页脚设置：右侧页码（加粗），左侧研究生信息
 \fancyfoot[R]{\bfseries\thepage}
-\fancyfoot[L]{\songti{\textcolor{sysugreen}{\textcolor{sysugreen}{\@date \@author}}}}
+\fancyfoot[L]{\songti{\textcolor{sysugreen}{\textcolor{sysugreen}{\@studentid \@author}}}}
+\fancyhead[R]{\songti{\textcolor{sysugreen}{\textcolor{sysugreen}{\@course \\ \@date}}}}
 
 % 取消页眉线和页脚线
 \renewcommand{\headrulewidth}{0pt}
@@ -120,8 +117,34 @@
   \renewcommand{\footrulewidth}{0pt}
 }
 
+% 数学物理
+\RequirePackage{amssymb}
+% \RequirePackage{mathrsfs} % 注释掉的宏包保持原样
+\RequirePackage{amsmath}
+\RequirePackage{physics}
+
+% 中文定理环境
+% \indent 为了段前空两格
+\newtheorem{theorem}{\indent 定理}[section]
+\newtheorem{problem}{\indent 问题}[section]
+\newtheorem{lemma}[theorem]{\indent 引理}
+\newtheorem{proposition}[theorem]{\indent 命题}
+\newtheorem{corollary}[theorem]{\indent 推论}
+\newtheorem{definition}{\indent 定义}[section]
+\newtheorem{example}{\indent 例}[section]
+\newtheorem{remark}{\indent 注}[section]
+\newenvironment{solution}{\begin{proof}[\indent\bf 解]}{\end{proof}}
+\renewcommand{\proofname}{\indent\bf 证明}
+
 \RequirePackage{hyperref}
 \RequirePackage{cleveref}
+\crefname{table}{表}{表}
+\crefname{figure}{图}{图}
+\crefname{section}{节}{节}
+\crefname{subsection}{Subsection}{Subsections}
+
+
+
 
 % 处理可能的类选项（此处预留扩展空间）
 \ProcessOptions\relax
