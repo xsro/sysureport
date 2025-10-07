@@ -32,32 +32,7 @@
 % 背景图片设置
 \RequirePackage{wallpaper}
 \CenterWallPaper{1.01}{resources/bg.pdf} % 假设背景图片路径固定
-\RequirePackage{fancyhdr} % 用于设置页眉页脚的宏包
-% 设置页眉页脚样式
-\pagestyle{fancy}
-\fancyhf{} % 清除默认的页眉页脚设置
 
-% 设置右上角页眉为指定文字（这里以"示例文字"为例）
-\fancyhead[R]{\textcolor{sysugreen}{示例文字}}
-
-% 可选：设置页码位置（例如页脚中央）
-\fancyfoot[C]{\thepage}
-
-% 对于章节首页（通常使用plain样式），也需要单独设置
-\fancypagestyle{plain}{
-  \fancyhf{} % 清除默认设置
-  \fancyhead[R]{\textcolor{sysugreen}{示例文字}} % 章节首页右上角同样显示文字
-  \fancyfoot[C]{\thepage} % 章节首页页码位置
-}
-
-% 页眉页脚设置
-\RequirePackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{} % 清除默认页眉页脚
-\fancyfoot[R]{\bfseries\thepage}
-\fancyfoot[L]{\songti{\textcolor{sysugreen}{2022 级研究生  \textcolor{gray}{22215363} \href{mailto:xsro@foxmail.com}{\textcolor{gray}{刘成}}}}}
-\renewcommand{\headrulewidth}{0pt} % 取消页眉线
-\renewcommand{\footrulewidth}{0pt} % 取消页脚线
 
 % 代码相关设置
 \RequirePackage{listings}
@@ -80,10 +55,12 @@
 
 % 设置默认值
 \course{现代控制理论（模板）}
-\college{学院}
-\major{专业}
+\college{航空航天学院}
+\major{航空宇航科学与技术}
 \studentid{学号}
 \instructor{指导教师}
+
+
 
 % 自定义标题页
 \newcommand{\maketitlepage}{
@@ -116,6 +93,31 @@
     % 垂直居中
     \vspace*{\fill}
   \end{titlepage}
+}
+
+% 页眉页脚
+\RequirePackage{fancyhdr}
+% 全局页眉页脚样式设置
+\pagestyle{fancy}
+\fancyhf{} % 清除默认页眉页脚设置
+
+% 页脚设置：右侧页码（加粗），左侧研究生信息
+\fancyfoot[R]{\bfseries\thepage}
+\fancyfoot[L]{\songti{\textcolor{sysugreen}{\textcolor{sysugreen}{\@date \@author}}}}
+
+% 取消页眉线和页脚线
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% 章节首页（plain样式）设置，与全局样式保持一致
+\fancypagestyle{plain}{
+  \fancyhf{} % 清除默认设置
+  % 保持与全局页脚一致的样式
+  \fancyfoot[R]{\bfseries\thepage}
+  \fancyfoot[L]{\songti{\textcolor{sysugreen}{\textcolor{sysugreen}{\@date~~ \@author}}}}
+  % 同样取消线条
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
 }
 
 \RequirePackage{hyperref}
