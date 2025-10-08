@@ -7,7 +7,7 @@
 \RequirePackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 
 % 图片
-\RequirePackage{graphicx,float,subfig}
+\RequirePackage{graphicx,float }
 \RequirePackage{tikz}
 
 % matlab
