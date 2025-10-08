@@ -2,7 +2,7 @@
 
 ## 如果已安装
 
-以下命令可以告知我们使用到的模板来自哪个文件
+以下命令可以告知我们使用到的模板来自哪个文件：
 
 ```
 kpsewhich sysureport.cls
@@ -10,24 +10,24 @@ kpsewhich sysureport.cls
 
 ## 如果未安装
 
-在 LaTeX 中，自己编写的宏包（`.sty` 文件）或类文件（`.cls` 文件）的存放位置，主要取决于你的使用场景（个人使用、多人共享或系统级安装）和 TeX 发行版（如 TeX Live、MiKTeX 等）。以下是推荐的存放方式：
-
+在 LaTeX 中，自己编写的宏包（`.sty` 文件）或类文件（`.cls` 文件）的存放位置，主要取决于你的使用场景（个人使用、多人共享或系统级安装）和 TeX 发行版（如 TeX Live、MiKTeX 等）。
+以下是推荐的存放方式：
 
 ### 1. 个人专用（推荐）
 如果你仅需自己使用这些宏包，且不想影响系统级配置，建议放在**用户级别的 TeX 目录**中。这样既方便管理，又不会因系统更新丢失文件。
-注意miktex 可能需要收到添加[TDS](https://miktex.org/kb/tds)路径才能顺利使用。
 
 不同操作系统的用户级目录路径如下：
 - **Windows（TeX Live/MiKTeX）**：  
   `C:\Users\你的用户名\texmf\tex\latex\`  
   （如果没有 `texmf` 目录，手动创建，后续目录结构保持与系统一致）
-
 - **macOS（TeX Live）**：  
   `~/Library/texmf/tex/latex/`  
   （`~` 代表用户主目录，即 `/Users/你的用户名/`）
-
 - **Linux（TeX Live）**：  
-  `~/texmf/tex/latex/`  
+  `~/texmf/tex/latex/`
+
+**注意**：本人使用的是scoop安装的miktex，实测以上路径没有被手动添加，建议将以上路径的[TDS](https://miktex.org/kb/tds)路径添加到miktex console 的设置 目录中才能顺利使用。
+当然也可以自定义其他的路径，保证是TDS的路径即可。
 
 
 ### 2. 多人共享或系统级安装
@@ -55,4 +55,4 @@ kpsewhich sysureport.cls
   - MiKTeX：打开 MiKTeX Console，在「Tasks」中选择「Refresh file name database」。
 
 
-通过以上方式存放，你可以在 `.tex` 文件中直接用 `\usepackage{mymacro}` 调用自己的宏包，无需指定路径。
+通过以上方式存放，你可以在 `.tex` 文件中直接用 `\usepackage{sysureport}` 调用自己的宏包，无需指定路径。
